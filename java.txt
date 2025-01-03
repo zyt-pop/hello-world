@@ -1,0 +1,25 @@
+toArray用法
+有时候，当我们调用ArrayList中的 toArray()，可能遇到过抛出java.lang.ClassCastException异常的情况，这是由于toArray() 返回的是 Object[] 数组，将 Object[] 转换为其它类型(如，将Object[]转换为的Integer[])则会抛出java.lang.ClassCastException异常，因为Java不支持向下转型。 
+所以一般更常用的是使用另外一种方法进行使用：
+
+
+调用toArray(T[] a)返回T[]可通以下方式进行实现：
+ // 第一种方式(最常用)
+ Integer[] integer = arrayList.toArray(new Integer[0]);  //长度为0的Integer类型数组会被arrayList撑大到它本身的长度
+ 
+ 
+ // 第二种方式(容易理解)
+ Integer[] integer1 = new Integer[arrayList.size()];
+ arrayList.toArray(integer1);
+
+
+输入字节流  转换成  输入字符流  需要使用InputStreamReader构造方法：
+InputStreamReader (InputStream in)
+因为文件以字节形式存储再外存，从外存读取文件时需要实现字节到字符的转换，这一动作站在程序的角度是读
+因此Input开头
+
+
+输出字符流  转换成  输出字节流  需要使用OutputStreamWriter构造方法：
+OutputStreamWriter（OutputStream out）
+因为文件以字符形式存储在内存，从内存向外存写文件时需要实现字符到字节的转换，这一动作站在程序的角度是写
+因此Output开头
